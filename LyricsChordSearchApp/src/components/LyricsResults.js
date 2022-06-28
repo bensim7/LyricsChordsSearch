@@ -25,7 +25,7 @@ const LyricsResults = (props) => {
       <button className="centered" onClick={props.handleGoBackToSearch}>
         Go Back To Search Page
       </button>
-      <h2 className="centered">
+      <h2 className="centered upperCase">
         {props.artistQuery} {props.songQuery}
       </h2>
       <div className="centered">

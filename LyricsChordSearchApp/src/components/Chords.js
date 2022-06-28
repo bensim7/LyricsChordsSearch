@@ -48,9 +48,9 @@ const Chords = () => {
     if (validFields) {
       const url =
         "https://api.uberchord.com/v1/chords/" +
-        chordRootQuery +
+        chordRootQuery.toUpperCase() +
         "_" +
-        chordVariQuery;
+        chordVariQuery.toLowerCase();
       fetchChord(url);
     } else {
       alert("At least Chord Key is required to be filled");

@@ -1,6 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import LyricsForm from "./LyricsForm";
 import LyricsResults from "./LyricsResults";
+import Favorites from "./Favorites";
+import ReactContext from "../context/react-context";
+
 const Lyrics = () => {
   const [artistQuery, setArtistQuery] = useState("");
   const [songQuery, setSongQuery] = useState("");
@@ -11,7 +14,12 @@ const Lyrics = () => {
   const [lyrics, setLyrics] = useState("");
   const [validFields, setValidFields] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
 
+  const handleAddFavorites = (item) => {
+    setFavorites(item, ...favorites);
+  };
   const fetchLyrics = async (url) => {
     setIsLoading(true);
     setError(null);
@@ -67,6 +75,7 @@ const Lyrics = () => {
       setShowResults(true);
       const url = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
       fetchLyrics(url);
+      // handleAddFavorites(url);
     } else if (artistQuery === "" && songQuery === "") {
       alert("Artist name and Song name fields are not filled");
     } else if (artistQuery === "") {
@@ -80,8 +89,17 @@ const Lyrics = () => {
     setShowResults(false);
   };
 
+  // console.log(artistQuery);
+  // console.log(songQuery);
+
   return (
     <>
+      <ReactContext.Provider value={{ favorites, setFavorites }}>
+        {/* {showFavorites ? <Favorites /> : ""} */}
+        <div className="hideFavorite">
+          <Favorites />
+        </div>
+      </ReactContext.Provider>
       {showResults ? (
         <LyricsResults
           lyrics={lyrics}
@@ -102,6 +120,7 @@ const Lyrics = () => {
           songQuery={songQuery}
           handleSongInput={handleSongInput}
           validFields={validFields}
+          handleAddFavorites={handleAddFavorites}
         />
       )}
       {/* <h2 className="centered">
@@ -109,6 +128,9 @@ const Lyrics = () => {
       </h2>
       <div className="centered">
         <p>{content}</p>
+      </div> */}
+      {/* <div className="hideFavorite">
+        <Favorites favorites={favorites} />
       </div> */}
     </>
   );

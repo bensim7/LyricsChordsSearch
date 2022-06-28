@@ -19,7 +19,7 @@ function App() {
           <Route path="/Main" element={<Main />} />
           <Route path="/Lyrics" element={<Lyrics />} />
           <Route path="/Chords" element={<Chords />} />
-          <Route path="Favorites" element={<Favorites />} />
+          <Route path="/Favorites" element={<Favorites />} />
         </Routes>
       </main>
     </div>

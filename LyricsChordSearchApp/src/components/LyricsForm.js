@@ -1,6 +1,12 @@
 import React from "react";
 
 const LyricsForm = (props) => {
+  const handleAddFavoritesButton = (event) => {
+    event.preventDefault();
+
+    const newItem = props.artistQuery + props.songQuery;
+    props.handleAddFavorites(newItem);
+  };
   return (
     <>
       <div className="row">
@@ -28,6 +34,9 @@ const LyricsForm = (props) => {
           />
 
           <button type="Submit">Submit</button>
+          <button type="submit" onClick={handleAddFavoritesButton}>
+            Favorite
+          </button>
           {props.validFields
             ? " *All inputs filled"
             : " *Please fill all the input fields"}

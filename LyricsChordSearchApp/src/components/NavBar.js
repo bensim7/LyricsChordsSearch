@@ -25,7 +25,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="Favorites"
+              to="/Favorites"
               className={(navData) => (navData.isActive ? styles.active : "")}
             >
               Favorites

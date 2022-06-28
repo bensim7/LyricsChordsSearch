@@ -34,3 +34,13 @@ body {
   margin: 0;
   padding: 20px;
 }
+
+.upperCase {
+  text-transform: uppercase;
+}
+
+.hideFavorite {
+  /* visibility: hidden; */
+  display: none;
+  /* opacity: 0; */
+}

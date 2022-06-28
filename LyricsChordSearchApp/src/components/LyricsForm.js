@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import ReactContext from "../context/react-context";
 
 const LyricsForm = (props) => {
+  // const reactCtx = useContext(ReactContext);
   const handleAddFavoritesButton = (event) => {
     event.preventDefault();
 
-    const newItem = props.artistQuery + props.songQuery;
+    const newItem =
+      props.artistQuery.toUpperCase() + " - " + props.songQuery.toUpperCase();
     props.handleAddFavorites(newItem);
   };
   return (

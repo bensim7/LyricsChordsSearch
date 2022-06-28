@@ -17,9 +17,19 @@ const Lyrics = () => {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
 
+  /////////////////////////////////////
+  // local storage
+  ////////////////////////////////////
   const handleAddFavorites = (item) => {
     setFavorites(item, ...favorites);
   };
+
+  useEffect(() => {
+    localStorage.setItem("favorite", favorites);
+  }, [favorites]);
+
+  //////////////////////////////////////////////////////////////////////
+
   const fetchLyrics = async (url) => {
     setIsLoading(true);
     setError(null);
@@ -56,6 +66,10 @@ const Lyrics = () => {
   const handleSongInput = (event) => {
     setSongQuery(event.target.value);
   };
+
+  //////////////////////////////////////////////////////
+  // Submit Function
+  ////////////////////////////////////////////////////////
 
   // let artistQuery = "";
   // let songQuery = "";
@@ -94,12 +108,12 @@ const Lyrics = () => {
 
   return (
     <>
-      <ReactContext.Provider value={{ favorites, setFavorites }}>
-        {/* {showFavorites ? <Favorites /> : ""} */}
-        <div className="hideFavorite">
+      {/* <ReactContext.Provider value={{ favorites, setFavorites }}>
+        {showFavorites ? <Favorites /> : ""}
+        <div className="hideComponent">
           <Favorites />
         </div>
-      </ReactContext.Provider>
+      </ReactContext.Provider> */}
       {showResults ? (
         <LyricsResults
           lyrics={lyrics}
@@ -129,7 +143,7 @@ const Lyrics = () => {
       <div className="centered">
         <p>{content}</p>
       </div> */}
-      {/* <div className="hideFavorite">
+      {/* <div className="hideComponent">
         <Favorites favorites={favorites} />
       </div> */}
     </>

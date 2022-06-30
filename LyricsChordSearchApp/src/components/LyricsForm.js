@@ -1,14 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ReactContext from "../context/react-context";
 
 const LyricsForm = (props) => {
   // const reactCtx = useContext(ReactContext);
+
+  const [validFieldsFavorites, setValidFieldsFavorites] = useState(false);
+  useEffect(() => {
+    setValidFieldsFavorites(
+      (props.artistQuery !== "") & (props.songQuery !== "")
+    );
+  }, [props.artistQuery, props.songQuery]);
+
   const handleAddFavoritesButton = (event) => {
     event.preventDefault();
-
-    const newItem =
-      props.artistQuery.toUpperCase() + " - " + props.songQuery.toUpperCase();
-    props.handleAddFavorites(newItem);
+    if (validFieldsFavorites) {
+      const newItem =
+        props.artistQuery.toUpperCase() + " - " + props.songQuery.toUpperCase();
+      props.handleAddFavorites(newItem);
+    } else if (props.artistQuery === "" && props.songQuery === "") {
+      alert("Artist name and Song name fields are not filled");
+    } else if (props.artistQuery === "") {
+      alert("Artist Field is not filled");
+    } else if (props.songQuery === "") {
+      alert("Song name is not filled");
+    }
   };
   return (
     <>

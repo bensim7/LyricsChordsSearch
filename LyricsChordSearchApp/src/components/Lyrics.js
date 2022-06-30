@@ -97,11 +97,11 @@ const Lyrics = (props) => {
       fetchLyrics(url);
       // handleAddFavorites(url);
     } else if (artistQuery === "" && songQuery === "") {
-      alert("Artist name and Song name fields are not filled");
+      alert("Fill in Artist name and song name to (Submit)");
     } else if (artistQuery === "") {
-      alert("Artist Field is not filled");
+      alert("Fill in Artist name to (Submit)");
     } else if (songQuery === "") {
-      alert("Song name is not filled");
+      alert("Fill in song name to (Submit)");
     }
   };
 

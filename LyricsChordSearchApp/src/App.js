@@ -26,7 +26,7 @@ function App() {
   }, [favorites]);
 
   return (
-    <div className="container">
+    <div className="container-md">
       <div className="siteHeader">
         <h1>Lyrics and Chords Search</h1>
       </div>

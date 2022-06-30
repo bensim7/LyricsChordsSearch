@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import ReactContext from "../context/react-context";
+// import ReactContext from "../context/react-context";
 
 const LyricsForm = (props) => {
   // const reactCtx = useContext(ReactContext);
@@ -18,11 +18,11 @@ const LyricsForm = (props) => {
         props.artistQuery.toUpperCase() + " - " + props.songQuery.toUpperCase();
       props.handleAddFavorites(newItem);
     } else if (props.artistQuery === "" && props.songQuery === "") {
-      alert("Artist name and Song name fields are not filled");
+      alert("Fill in Artist name and song name to add (Favorites)");
     } else if (props.artistQuery === "") {
-      alert("Artist Field is not filled");
+      alert("Fill in Artist name to add (Favorites)");
     } else if (props.songQuery === "") {
-      alert("Song name is not filled");
+      alert("Fill in song name to add (Favorites)");
     }
   };
   return (

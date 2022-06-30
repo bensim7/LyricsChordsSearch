@@ -52,9 +52,9 @@ const Favorites = (props) => {
   //   localStorage.setItem("favorites", favorites);
   // }, [favorites]);
 
-  const initialState = localStorage.getItem("favorite");
-
-  const [favoriteDisplay, setFavoriteDisplay] = useState(initialState);
+  const storedFavorites = localStorage.getItem("favorite");
+  // const storedFavorites = JSON.parse(localStorage.getItem("favorite"));
+  const [favoriteDisplay, setFavoriteDisplay] = useState(storedFavorites);
 
   // useEffect(() => {
   //   setFavoriteDisplay(JSON.parse(localStorage.getItem("favorite")));

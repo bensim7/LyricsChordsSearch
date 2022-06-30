@@ -4,7 +4,7 @@ import LyricsResults from "./LyricsResults";
 import Favorites from "./Favorites";
 import ReactContext from "../context/react-context";
 
-const Lyrics = () => {
+const Lyrics = (props) => {
   const [artistQuery, setArtistQuery] = useState("");
   const [songQuery, setSongQuery] = useState("");
   // const artistQueryRef = useRef();
@@ -14,19 +14,25 @@ const Lyrics = () => {
   const [lyrics, setLyrics] = useState("");
   const [validFields, setValidFields] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
 
   /////////////////////////////////////
   // local storage
   ////////////////////////////////////
-  const handleAddFavorites = (item) => {
-    setFavorites(item, ...favorites);
-  };
+  // const handleAddFavorites = (item) => {
+  //   setFavorites((prevState) => {
+  //     return [...prevState, item];
+  //   });
+  // };
 
-  useEffect(() => {
-    localStorage.setItem("favorite", favorites);
-  }, [favorites]);
+  // const handleAddFavorites = (item) => {
+  //   setFavorites(item);
+  // };
+
+  // useEffect(() => {
+  //   localStorage.setItem("favorite", favorites);
+  // }, [favorites]);
 
   //////////////////////////////////////////////////////////////////////
 
@@ -134,7 +140,7 @@ const Lyrics = () => {
           songQuery={songQuery}
           handleSongInput={handleSongInput}
           validFields={validFields}
-          handleAddFavorites={handleAddFavorites}
+          handleAddFavorites={props.handleAddFavorites}
         />
       )}
       {/* <h2 className="centered">

@@ -1,6 +1,7 @@
 .navbar {
   height: 5em;
   background-color: rgb(48, 121, 123);
+  opacity: 0.9;
 }
 
 .navbar nav {
@@ -19,7 +20,7 @@
 
 .navbar li {
   margin: 10rem;
-  width: 10rem;
+  width: 8rem;
   align-items: center;
 }
 

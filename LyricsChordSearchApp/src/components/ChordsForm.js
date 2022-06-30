@@ -8,26 +8,45 @@ const ChordsForm = (props) => {
       </div>
       <div className="centered">
         <form onSubmit={props.handleSubmit}>
-          <label htmlFor="chordRootQuery">Search Here:</label>
-          <input
-            id="chordRootQuery"
-            value={props.chordRootQuery}
-            onChange={props.handleRootNoteInput}
-            type="text"
-            placeholder="Enter Chord Key Here:"
-          />
-          <label htmlFor="chordVariQuery"></label>
-          <input
-            id="chordVariQuery"
-            value={props.chordVariQuery}
-            onChange={props.handleVariInput}
-            type="text"
-            placeholder="Enter Chord Variation Here. "
-          />
-          <button type="Submit">Submit</button>
-          {props.validFields
-            ? "  *Key Filled, Variation is optional"
-            : "  *Please fill the Chord Key Field"}
+          <div className="row">
+            <div className="col-md-5">
+              <label htmlFor="chordRootQuery">Search Here:</label>
+            </div>
+            <div className="col-md-7">
+              <input
+                id="chordRootQuery"
+                value={props.chordRootQuery}
+                onChange={props.handleRootNoteInput}
+                type="text"
+                placeholder="Enter Chord Key"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-5">
+              <label htmlFor="chordVariQuery"></label>
+            </div>
+            <div className="col-md-7">
+              <input
+                id="chordVariQuery"
+                value={props.chordVariQuery}
+                onChange={props.handleVariInput}
+                type="text"
+                placeholder="Enter Chord Variation: "
+              />
+            </div>
+          </div>
+          <br />
+          <div className="row">
+            <div className="col-md-5">
+              {props.validFields
+                ? "  *Key Filled, Variation is optional"
+                : "  *Please fill the Chord Key Field"}
+            </div>
+            <div className="col-md-7">
+              <button type="Submit">Submit</button>
+            </div>
+          </div>
         </form>
       </div>
     </>

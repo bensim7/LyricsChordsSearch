@@ -6,11 +6,10 @@ import Lyrics from "./components/Lyrics";
 import Chords from "./components/Chords";
 import Favorites from "./components/Favorites";
 
+const initialState = [
+  localStorage.getItem("favorite") ? localStorage.getItem("favorite") : [],
+];
 function App() {
-  const initialState = [
-    localStorage.getItem("favorite") ? localStorage.getItem("favorite") : [],
-  ];
-
   const [favorites, setFavorites] = useState(initialState);
 
   const handleAddFavorites = (item) => {

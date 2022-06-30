@@ -74,7 +74,7 @@ const LyricsForm = (props) => {
               <button type="Submit">Submit</button>
 
               <button type="submit" onClick={handleAddFavoritesButton}>
-                Favorite
+                Save To Favorites
               </button>
             </div>
           </div>

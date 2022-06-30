@@ -32,7 +32,7 @@ const ChordsForm = (props) => {
                 value={props.chordVariQuery}
                 onChange={props.handleVariInput}
                 type="text"
-                placeholder="Enter Chord Variation: "
+                placeholder="Enter Chord Variation"
               />
             </div>
           </div>

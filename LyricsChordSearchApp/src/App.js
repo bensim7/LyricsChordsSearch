@@ -5,8 +5,13 @@ import Main from "./components/Main";
 import Lyrics from "./components/Lyrics";
 import Chords from "./components/Chords";
 import Favorites from "./components/Favorites";
+
 function App() {
-  const [favorites, setFavorites] = useState([]);
+  const initialState = [
+    localStorage.getItem("favorite") ? localStorage.getItem("favorite") : [],
+  ];
+
+  const [favorites, setFavorites] = useState(initialState);
 
   const handleAddFavorites = (item) => {
     setFavorites((prevState) => {
@@ -15,7 +20,9 @@ function App() {
   };
 
   useEffect(() => {
+    // if (favorites !== null) {
     localStorage.setItem("favorite", favorites);
+    // }
   }, [favorites]);
 
   return (

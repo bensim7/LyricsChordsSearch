@@ -52,9 +52,27 @@ const Favorites = (props) => {
   //   localStorage.setItem("favorites", favorites);
   // }, [favorites]);
 
-  let favoriteDisplay = localStorage.getItem("favorite");
+  const initialState = localStorage.getItem("favorite");
 
+  const [favoriteDisplay, setFavoriteDisplay] = useState(initialState);
+
+  // useEffect(() => {
+  //   setFavoriteDisplay(JSON.parse(localStorage.getItem("favorite")));
+  // }, []);
+
+  // useEffect(() => {
+  //   const favoriteLoad = localStorage.getItem("favorite");
+  //   if (favoriteLoad) {
+  //     setFavoriteDisplay(JSON.parse(favoriteLoad));
+  //   }
+  // }, []);
+  console.log(favoriteDisplay);
   let favoriteDisplayArr = favoriteDisplay.split(",");
+  console.log(favoriteDisplayArr);
+
+  let favDisplayArr = [];
+  favDisplayArr = favoriteDisplayArr.shift();
+  console.log(favDisplayArr);
 
   let favoriteDisplayList = favoriteDisplayArr.map((item) => {
     return (
@@ -64,7 +82,7 @@ const Favorites = (props) => {
     );
   });
   console.log(favoriteDisplay);
-  console.log(favoriteDisplayArr);
+  // console.log(favoriteDisplayArr);
   // console.log(favorites);
   return (
     <>

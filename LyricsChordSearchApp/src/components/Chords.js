@@ -81,30 +81,6 @@ const Chords = () => {
   }
   return (
     <>
-      {/* <div className="row">
-        <h1 className="centered">Chords Search Page</h1>
-      </div>
-      <div className="centered">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="chordRootQuery">Search Here:</label>
-          <input
-            id="chordRootQuery"
-            value={chordRootQuery}
-            onChange={handleRootNoteInput}
-            type="text"
-            placeholder="Enter Chord Key Here:"
-          />
-          <label htmlFor="chordVariQuery"></label>
-          <input
-            id="chordVariQuery"
-            value={chordVariQuery}
-            onChange={handleVariInput}
-            type="text"
-            placeholder="Enter Chord Variation Here. "
-          />
-          <button type="Submit">Submit</button>
-        </form>
-      </div> */}
       <ChordsForm
         handleSubmit={handleSubmit}
         chordRootQuery={chordRootQuery}

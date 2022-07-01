@@ -3,7 +3,6 @@ import React from "react";
 const LyricsResults = (props) => {
   let content = "";
   if (props.lyrics) {
-    // content = <div>{props.lyricsDisplayed}</div>;
     content = props.lyricsDisplayed.map((item) => {
       return (
         <span>

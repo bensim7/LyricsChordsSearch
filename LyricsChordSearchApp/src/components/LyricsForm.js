@@ -1,9 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-// import ReactContext from "../context/react-context";
-
 const LyricsForm = (props) => {
-  // const reactCtx = useContext(ReactContext);
-
   const [validFieldsFavorites, setValidFieldsFavorites] = useState(false);
   useEffect(() => {
     setValidFieldsFavorites(
@@ -67,7 +63,7 @@ const LyricsForm = (props) => {
           <div className="row">
             <div className="col-md-5">
               {props.validFields
-                ? " *All inputs filled"
+                ? " *All the inputs fields are filled"
                 : " *Please fill all the input fields"}
             </div>
             <div className="col-md-7">

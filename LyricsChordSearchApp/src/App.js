@@ -19,9 +19,8 @@ function App() {
   };
 
   useEffect(() => {
-    // if (favorites !== null) {
     localStorage.setItem("favorite", favorites);
-    // }
+    //  localStorage.setItem("favorite", JSON.stringify(favorites))
   }, [favorites]);
 
   return (
@@ -33,7 +32,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Navigate replace to="/Main" />} />
-          {/* <Route exact path="/" element={<Navigate replace to="/" />} /> */}
+
           <Route path="/Main" element={<Main />} />
           <Route
             path="/Lyrics"

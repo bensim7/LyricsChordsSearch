@@ -18,16 +18,12 @@ const Lyrics = (props) => {
   const [showFavorites, setShowFavorites] = useState(false);
 
   /////////////////////////////////////
-  // local storage
+  // local storage - Moved to App.js
   ////////////////////////////////////
   // const handleAddFavorites = (item) => {
   //   setFavorites((prevState) => {
   //     return [...prevState, item];
   //   });
-  // };
-
-  // const handleAddFavorites = (item) => {
-  //   setFavorites(item);
   // };
 
   // useEffect(() => {
@@ -57,11 +53,6 @@ const Lyrics = (props) => {
     setIsLoading(false);
   };
 
-  // console.log(lyrics);
-  // console.log(lyrics.replaceAll("\n", "<br/>"));
-
-  // let lyricsDisplayed = lyrics.replace(/(\r\n|\r|\n)/g, "<br />");
-
   let lyricsDisplayed = lyrics.toString().split("\n");
   console.log(lyricsDisplayed);
 
@@ -77,8 +68,6 @@ const Lyrics = (props) => {
   // Submit Function
   ////////////////////////////////////////////////////////
 
-  // let artistQuery = "";
-  // let songQuery = "";
   useEffect(() => {
     setValidFields(artistQuery !== "" && songQuery !== "");
   }, [artistQuery, songQuery]);
@@ -86,16 +75,10 @@ const Lyrics = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // setArtistQuery(artistQueryRef.current.value);
-    // setSongQuery(songQueryRef.current.value);
-
-    // const artistQuery = artistQueryRef.current.value;
-    // const songQuery = songQueryRef.current.value;
     if (validFields) {
       setShowResults(true);
       const url = "https://api.lyrics.ovh/v1/" + artistQuery + "/" + songQuery;
       fetchLyrics(url);
-      // handleAddFavorites(url);
     } else if (artistQuery === "" && songQuery === "") {
       alert("Fill in Artist name and song name to (Submit)");
     } else if (artistQuery === "") {
@@ -109,17 +92,8 @@ const Lyrics = (props) => {
     setShowResults(false);
   };
 
-  // console.log(artistQuery);
-  // console.log(songQuery);
-
   return (
     <>
-      {/* <ReactContext.Provider value={{ favorites, setFavorites }}>
-        {showFavorites ? <Favorites /> : ""}
-        <div className="hideComponent">
-          <Favorites />
-        </div>
-      </ReactContext.Provider> */}
       {showResults ? (
         <LyricsResults
           lyrics={lyrics}
@@ -133,8 +107,6 @@ const Lyrics = (props) => {
       ) : (
         <LyricsForm
           handleSubmit={handleSubmit}
-          // artistQueryRef={artistQueryRef}
-          // songQueryRef={songQueryRef}
           artistQuery={artistQuery}
           handleArtistInput={handleArtistInput}
           songQuery={songQuery}
@@ -143,15 +115,6 @@ const Lyrics = (props) => {
           handleAddFavorites={props.handleAddFavorites}
         />
       )}
-      {/* <h2 className="centered">
-        {artistQuery} {songQuery}
-      </h2>
-      <div className="centered">
-        <p>{content}</p>
-      </div> */}
-      {/* <div className="hideComponent">
-        <Favorites favorites={favorites} />
-      </div> */}
     </>
   );
 };

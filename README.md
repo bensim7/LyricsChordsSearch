@@ -76,6 +76,9 @@ Using react router, the song lyrics search, and the chord search are in seperate
 
 5. A solution was found when moving the addToFavorites function, the favorites and setFavorites useState, and the localStorage set item into App.js, the parent component with the Routes for the react router. This enabled Favorites.js to retrieve more than one item from the local Storage instead of just one artist name and song name at a time.
 
+- However, it might be because localStorage.setItem and localStorage.getItem is used to store and retrieve an array instead of JSON - when retrieved with localStorage.getItem in Favorites.js it comes out as a string with commas where .split(",") was used to restructure it back into an array and then Array.map was to return the array item of artist name/song name into individual lines.
+- Later noticed that the string with commas that is first retrieved from localStorage.getItem has an empty space followed by a comma as the first item, so when it was .split(","), the resulting array has a empty first item. The solution explored to use array.shift to remove the first item from the resulting array before using the array.map function.
+
 6. While the storing and retrieving of favorites now worked between router pages, I noticed that when the page was refreshed or when going to another page and returning to the App, the local storage would reset to empty. After a while I realized that whenever the page was refreshed or reentered from another webpage, the useEffect would trigger on favorites state change to autosave to localStorage the inital state of setFavorites which was an empty array. This was resolved with a ternary operator that sets the condition for the initial useState to be 'if there is something in the local storage and it is true the existing item in local storage would be the initial state, if false, the empty array would be the initial state.
 
 ![LocalStorage](/LyricsChordSearchApp/LocalStorage.jpg)

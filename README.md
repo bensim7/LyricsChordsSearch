@@ -25,7 +25,9 @@ Using react router, the song lyrics search, and the chord search are in seperate
 - Initial Wireframe sketch of the app pages
 
 ![Wireframe1](/LyricsChordSearchApp/Wireframe1.jpg)
+
 ![Wireframe2](/LyricsChordSearchApp/Wireframe2.jpg)
+
 ![Wireframe3](/LyricsChordSearchApp/Wireframe3.jpg)
 
 ---

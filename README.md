@@ -6,7 +6,7 @@ The goal of Lyrics Chords Search app is to be a 2 in 1 app that allows vocalists
 
 # Description
 
-Project ues react functional components to create an app that takes in user's inputs for artist name, song name and Chords and fetches api for song lyrics or chords based on the user input.
+Project uses react functional components to create an app that takes in user's inputs for artist name, song name and Chords and fetches api for song lyrics or chords based on the user input.
 Using react router, the song lyrics search, and the chord search are in seperate pages. There is an additional favorites page in the react router that takes in values from the user inputs of the song lyrics search to store the artist and song name in the seperate favorites page using local storage.
 
 ---

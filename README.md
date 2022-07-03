@@ -72,7 +72,7 @@ Using react router, the song lyrics search, and the chord search are in seperate
 
 ![Favorites](/LyricsChordSearchApp/FavoritesFunction.jpg)
 
-4. I decided to move the addToFavorites into Favorites.js so that the array could be created within the Favorites.js, the page displaying the favorites state. However, this meant that the favorites function would need to be passed from Favorties.js into LyricsForm.js, which is the child component of a Sibling component. This resulted in error where the addToFavorites function was not defined which LyricsForm attempted to call the function.
+4. The addToFavorites function was then moved into Favorites.js so that the list of favorites array could be created within the Favorites.js, the page displaying the favorites state. However, this meant that the favorites function would need to be passed from Favorties.js into LyricsForm.js, which is the child component of a Sibling component. This resulted in error where the addToFavorites function was not defined which LyricsForm attempted to call the function.
 
 5. A solution was found when moving the addToFavorites function, the favorites and setFavorites useState, and the localStorage set item into App.js, the parent component with the Routes for the react router. This enabled Favorites.js to retrieve more than one item from the local Storage instead of just one artist name and song name at a time.
 
@@ -83,6 +83,8 @@ Using react router, the song lyrics search, and the chord search are in seperate
 ![LocalStorage](/LyricsChordSearchApp/LocalStorage.jpg)
 
 8. Later noticed that the string with commas that is first retrieved from localStorage.getItem has an empty space followed by a comma as the first item, so when it was .split(","), the resulting array has a empty first item. The solution explored to use array.shift to remove the first item from the resulting array before using the array.map function. After checking, this issue might have originated from App.js and could be due to a combination of the favorites state being an array and ternary operator being set as initial useState for favorites, which results in an empty array item placed in the initial set for favorites.
+
+A improved fixed may be remove the first empty array with array.shift in App.js before storing the favorites in localStorage. As this may remove the first item in the array if initialState already has something in the localStorage, an 'if' statement may be used to only array.shift if the initialState is an empty array.
 
 This project showed how React Components help to break down the problem solving process into smaller components. As states and functions are stored in the upper level in the parent component, instead of having all the variables and functions in one page, it felt easier to see how data and functions can be shared in a parent-child component map. States also maintain data upon re-render which enabled further use of the passed data such as setting and getting items from localStorage and toggling pages displays.
 
